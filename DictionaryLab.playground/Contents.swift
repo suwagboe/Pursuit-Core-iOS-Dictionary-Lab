@@ -18,26 +18,32 @@ print("eveAppleCount == 4", "Was expecting 4, but got \(eveAppleCount)")
 
 // b. Change the number of apples that Adam  has to 4
 //https://developer.apple.com/documentation/swift/dictionary/3127179-updatevalue
-
-if let _ = applesDict.updateValue(4, forKey: "Adam"){
-print("(applesDict["Adam"] == 4", "Was expecting 4, instead got \(String(describing: applesDict["Adam"]))")
-}
+//applesDict["Adam"] = 4
+//print(applesDict["Adam"] ?? 5)
+    applesDict.updateValue(4, forKey: "Adam") ?? 5
+//    print("(applesDict["Adam"] == 4")
+//    print("Was expecting 4, instead got \(String(describing: applesDict["Adam"]))")
+//}
 // Your code here
 
-//assert(applesDict["Adam"] == 4, "Was expecting 4, but got \(String(describing: applesDict["Adam"]))")
+assert(applesDict["Adam"] == 4, "Was expecting 4, but got \(String(describing: applesDict["Adam"]))")
 
 // c. Set calAndDanAppleCount equal to the sum of both of those
 
-let calAndDanAppleCount = /*Your code here (Replace -1 with your solution)*/
+let calAndDanAppleCount = applesDict["Adam"]! + applesDict["Cal"]!
+print(calAndDanAppleCount)
+
+
+/*Your code here (Replace -1 with your solution)*/
 //assert(calAndDanAppleCount == 8, "Was expecting 8, but got \(calAndDanAppleCount)")
 
 // d. Set all the values in applesDict to 0
 
 // Your code here
 
-//for (_, value) in applesDict {
-//    assert(value == 0, "Was expecting 0, but got \(value)")
-//}
+for (_, value) in applesDict {
+    assert(value == 0, "Was expecting 0, but got \(value)")
+}
 
 // Question Two
 
@@ -47,27 +53,30 @@ var citiesDict: [String: String] = ["Afghanistan": "Kabul",
 
 // a. Set russiaCapital equal to Russia's capital using citiesDict
 
-let russiaCapital = /* Your code here (Replace "" with your solution)*/ citiesDict["Russia"],
-//assert(russiaCapital == "Moscow", "Was expecting Moscow, but got \(russiaCapital)")
-//print(russiaCapital == "Moscow", "Was expecting Moscow, but got \(String(describing: russiaCapital))",
+let russiaCapital = citiesDict["Russia"]
+    
+    /* Your code here (Replace "" with your solution)citiesDict["Russia"],*/
+assert(russiaCapital == "Moscow", "Was expecting Moscow, but got \(russiaCapital)")
+print(russiaCapital == "Moscow", "Was expecting Moscow, but got \(String(describing: russiaCapital))",
 // b. Add a new key value pair "Jamaica" and its capital "Kingston"
 
     // Your code here
     citiesDict["Jamaica"] = "Kingston",
 
-//assert(citiesDict["Jamaica"] == "Kingston", "Was expecting Kingston, but got \(String(describing: citiesDict["Jamaica"]))")
+    assert(citiesDict["Jamaica"] == "Kingston", "Was expecting Kingston, but got \(String(describing: citiesDict["Jamaica"]))"),
     print(citiesDict["Jamaica"] == "Kingston", "Was expecting Kingston, but got \(String(describing: citiesDict["Jamaica"]))"),
 // c. Add a new key value pair "Indonesia" and its capital "Jakarta"
 
 // Your code here
 citiesDict["Indonesia"] = "Jakarta",
 
-//assert(citiesDict["Indonesia"] == "Jakarta", "Was expecting Jakarta, but got \(String(describing: citiesDict["Indonesia"]))")
+assert(citiesDict["Indonesia"] == "Jakarta", "Was expecting Jakarta, but got \(String(describing: citiesDict["Indonesia"]))"),
 print(citiesDict["Indonesia"] == "Jakarta", "Was expecting Jakarta, but got \(String(describing: citiesDict["Indonesia"]))")
 // Question 3
 
 // a. Create a dictionary that represents the table below listing an authors name and their comprehensibility score.
-
+    
+    
 /*
 | Author Name |    Score |
 | :--: | :--: |
@@ -81,9 +90,15 @@ print(citiesDict["Indonesia"] == "Jakarta", "Was expecting Jakarta, but got \(St
 //var authorScores = [String: Double] ()
 
 // Your code here
-var authorScores: [String: Double] = ["Mark Twain":    8.9, "Nathaniel Hawthorne": 5.1, "John Steinbeck": 2.3,
-"C.S. Lewis": 9.9,
-"Jon Krakauer": 6.1]
+
+    // I DO NOT KNOW WHAT IS WRONG WITH THIS ONE BUT CAN WE LOOK OVER IT
+//var authorScores: [String : Double] = ["Mark Twain" : 8.9 ,
+//"Nathaniel Hawthorne" : 5.1,
+//"John Steinbeck" : 2.3,
+// "C.S. Lewis" : 9.9,
+// "Jon Krakauer": 6.1]
+
+
 assert(authorScores["Mark Twain"] == 8.9, "Was expecting 8.9, but got \(String(describing: authorScores["Mark Twain"]))")
 assert(authorScores["Nathaniel Hawthorne"] == 5.1, "Was expecting 5.1, but got \(String(describing: authorScores["Nathaniel Hawthorne"]))")
 assert(authorScores["John Steinbeck"] == 2.3, "Was expecting 2.3, but got \(String(describing: authorScores["John Steinbeck"]))")
@@ -137,6 +152,12 @@ var highestScoringName = ""
 
 // Your code here
 
+
+
+
+
+
+
 //assert(highestScoringName == "Garry Mckenzie", "Was expecting Garry Mckenzie, but got \(highestScoringName)")
 
 // Question Five
@@ -168,7 +189,5 @@ var mostFrequentChar: Character = "?"
 
 
 // Your code here
-
-
 
 //assert(mostFrequentChar == "e", "Was expecting e, but got \(mostFrequentChar)")
